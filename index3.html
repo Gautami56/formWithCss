@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: url("images.jpg");
+            background-repeat: no-repeat;
+            /**background-position: 670px 20px;**/
+           
+            background-size: 100% 1000px;
+          
+            
+        
+           
+      
+            
+        }
+.subbtn {
+    background-color: green;
+    color: white;
+    padding: 10px;
+    margin: 8px 0 7px;
+    border: none;
+    cursor: pointer;
+    width: 98%;
+    opacity: 0.9;
+    border-radius: 100px;
+
+}
+
+.res {
+    size: 60px;
+    margin-top: 30px;
+    margin-right: 10px;
+}
+
+.subbtn:hover {
+    opacity: 1;
+}
+.container {
+  padding: 16px;
+  width: 500px;
+  margin-left: 50px;
+  background-color: white;
+  border: 1px solid green;
+}
+
+.super-group {
+    height: 100px;
+    padding: 16px;
+  width: 500px;
+  margin-left: 10px;
+  
+  
+}
+
+input[type=text], input[type=password] {
+    width: 95%;
+    padding: 15px;
+   
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    border-radius: 25px;
+    
+  background: #f1f1f1;
+
+  
+ 
+ 
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: lightgray;
+  opacity: 0.8;
+  outline: none;
+}
+input::placeholder{
+    font-weight: bold;
+}
+
+#add {
+    width: 95%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: 3px solid lightgray;
+  background: #f1f1f1;  
+ border-radius: 15px;
+  border-style: outset;
+
+  
+}
+
+#add::placeholder 
+{
+   font-weight: bold;
+}
+
+#add:focus {
+    border: none;
+    opacity: 0.8;
+    outline: none;
+    background-color: lightgray;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid grey;
+  margin-bottom: 20px;
+}
+
+
+.form-group {
+    border: 3px solid silver;
+ padding-left: 30px;
+ padding-top: 10px;
+ padding-bottom: 10px;
+ margin: 12px;
+ align-self: center;
+ font-weight: bold;
+ margin-left: 50px;
+
+}
+
+.form1 {
+    height: 620px;
+    width: 600px;
+    margin-left:400px;
+opacity: 0.8;
+    border: 1px solid black;
+    background-color: #E2E2E2;
+}
+
+
+.info-position {
+   font-weight: bold;
+   margin-left: 50px; 
+  }
+
+#result {
+    font-size: 10px;
+    font-weight: bold;
+}
+ 
+    </style>
+<script>
+    function showLocation(){
+        
+        console.log('BBBBB', navigator.geolocation)
+        if(navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var positionInfo = "Your current position is (" + "Latitude: " + position.coords.latitude + ", " + "Longitude: " + position.coords.longitude + ")";
+                document.getElementById("result").innerHTML = positionInfo;
+            });
+         
+        } else {
+            alert("Sorry, your browser does not support HTML5 geolocation.");
+        }
+    }
+
+    function getInputValue(){
+        
+        console.log('BBBBB Submit')
+       var inputPassword = document.getElementById("pass").value;
+       var address = document.getElementById("add").value;
+       alert(address )
+    }
+</script>
+</head>
+
+<body>
+    <div class="form1">
+        <script>
+            /**
+            To create a form to do user signup
+            1) Password 2) Phone Number 3) Address 4) Location
+             **/
+
+        </script>
+        <form >
+         <div class="super-group">
+            <h1>SignUp</h1>
+            <p>Please fill in this form to do user signup.</p>
+            <hr>
+            <label ><b>Password</b></label>
+            <input placeholder="Enter New Password" required="true" minlength="3" maxlength="8"  name="password1" id="pass" type="password"/>
+
+            <label ><b>Confirm Password</b></label>
+            <input placeholder="Confirm Password"  required="true" minlength="3" maxlength="8"  name="password" id="pass-repeat" type="password"/>
+
+            <label ><b>Address</b></label>
+            <textarea placeholder="Enter Address"  required="true" minlength="5"   name="address" id="add" type="text"></textarea>  
+            
+                <button type="button" class="subbtn" onclick="showLocation();">Show Location</button>
+          
+            <h1 id="result" class="info-position" >
+                <!--Position information will be inserted here-->
+            </h1>
+
+            <hr>
+            <div>
+            <button type="submit" class="subbtn" onclick="getInputValue();">Submit</button>
+        </div>
+
+         </div>
+         
+        
+        
+               
+         
+
+       
+          </form>
+    </div>
+    
+
+</body>
+</html>
